@@ -1,12 +1,14 @@
 import React from 'react'
 
 class Filters extends React.Component {
+  //Animal type: Should call the 'onChangeType' prop cb when the animal type selected changes 
+  //Finding pets: SHould call the onFindPetsClick' cb prop when the "Find pets" button is clicked 
   render() {
     return (
       <div className="ui form">
         <h3>Animal type</h3>
         <div className="field">
-          <select name="type" id="type">
+          <select name="type" id="type" onChange={this.props.onChangeType}>
             <option value="all">All</option>
             <option value="cat">Cats</option>
             <option value="dog">Dogs</option>
@@ -15,7 +17,11 @@ class Filters extends React.Component {
         </div>
 
         <div className="field">
-          <button className="ui secondary button">Find pets</button>
+          <button 
+            onClick={this.props.onFindPetsClick}
+            className="ui secondary button">
+              Find pets
+            </button>
         </div>
       </div>
     )
